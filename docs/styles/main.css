@@ -6641,8 +6641,6 @@ button.bg-dark:focus {
 }
 
 .d-flex {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
     display: flex !important;
 }
 
@@ -6726,6 +6724,10 @@ button.bg-dark:focus {
     .d-md-flex {
         display: -webkit-box !important;
         display: -ms-flexbox !important;
+        display: flex !important;
+    }
+
+    .d-flex {
         display: flex !important;
     }
 
@@ -8038,6 +8040,11 @@ button.bg-dark:focus {
 .mb-5,
 .my-5 {
     margin-bottom: 3rem !important;
+}
+
+.mb-10,
+.my-10 {
+    margin-bottom: 10rem !important;
 }
 
 .ml-5,
@@ -9756,9 +9763,9 @@ body {
 
 /* Home Page Style */
 .ww-home-page {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/main-background.jpeg") no-repeat center center;
-    background-size: cover;
-    background-position: 50%;
+    background: url("../images/main-background.jpg") no-repeat center center;
+    background-size: contain;
+    background-position: 50% 50%;
     height: 100vh;
     min-height: 480px;
 }
@@ -9785,10 +9792,19 @@ body {
     width: auto;
 }
 
+@media (max-width: 767px) {
+    .ww-home-page {
+        background-size: contain; /* 또는 다른 값으로 조절 */
+        background-position: center;
+        min-width: original-aspect-ratio; /* 또는 다른 값으로 조절 */
+    }
+}
+
 @media (max-width: 480px) {
     .ww-home-page .ww-wedding-announcement img {
-        max-height: 250px;
-        width: auto;
+        min-width: original-aspect-ratio;
+        height: 140%;
+        
     }
 }
 
@@ -9804,7 +9820,7 @@ body {
 
 .ww-home-page:before {
     content: "";
-    background-color: rgba(245, 138, 119, 0.2);
+    background-color: rgba(0, 0, 0, 0.05);
     width: 100%;
     height: 100%;
     height: 100vh;
@@ -9953,9 +9969,33 @@ body {
     padding-left: 20%;
 }
 
+.prologue {
+    font-size: 18px
+}
+
 @media (max-width: 768px) {
     .ww-rsvp-detail .ww-rsvp-form {
         padding-left: 10%;
+    }
+
+    .event-details {
+        font-size: 4vw;
+    }
+
+    .ww-title {
+        font-size: 8vw;
+    }
+
+    .title-names {
+        font-size: 10px;
+    }
+
+    .prologue {
+        font-size: 4vw
+    }
+
+    .transport {
+        font-size: 4vw
     }
 }
 
@@ -10030,6 +10070,22 @@ body {
     font-family: "Great Vibes", cursive;
 }
 
+.hkh-title {
+    font-family: "Great Vibes", cursive;
+}
+
+.title-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 6vw;
+    white-space: nowrap;
+}
+
+@media screen and (min-width: 720px) {
+    .title-names {
+        font-size: 44px; /* PC 화면에서 크기를 더 크게 설정합니다. */
+    }
+}
+
 .ww-section {
     padding: 100px 0;
 }
@@ -10058,4 +10114,36 @@ body {
     bottom: 0;
     left: 0;
     margin: 0px 15px 15px 15px;
+}
+
+.custom-button {
+    background-color: #888888; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: flex; /* Flexbox를 사용합니다. */
+    justify-content: center; /* 수평 가운데 정렬합니다. */
+    align-items: center; /* 수직 가운데 정렬합니다. */
+    font-size: 4vw;
+    cursor: pointer;
+    border-radius: 200px;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+}
+  
+.custom-button:hover {
+    background-color: #25afaf; /* Darker Green */
+}
+
+@media screen and (min-width: 500px) {
+    .custom-button {
+        font-size: 20px; /* PC 화면에서 크기를 더 크게 설정합니다. */
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
 }
